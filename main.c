@@ -6,11 +6,17 @@
 /*   By: modavid <modavid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 18:54:35 by modavid           #+#    #+#             */
-/*   Updated: 2025/04/08 17:00:11 by modavid          ###   ########.fr       */
+/*   Updated: 2025/04/08 21:11:59 by modavid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	check_space(char *str, int *i)
+{
+	while (str[*i] == ' ' || str[*i] == '\t' || str[*i] == '\v')
+		(*i)++;
+}
 
 int	check_extension(char *extension)
 {
