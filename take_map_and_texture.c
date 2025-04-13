@@ -6,7 +6,7 @@
 /*   By: modavid <modavid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 13:36:38 by modavid           #+#    #+#             */
-/*   Updated: 2025/04/13 18:27:17 by modavid          ###   ########.fr       */
+/*   Updated: 2025/04/13 22:51:50 by modavid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char	**take_texture(int fd)
 	return (free(texture), tmp2d);
 }
 
-char	**take_map(int fd)
+char	**take_map(int fd, t_data *data)
 {
 	char	*map;
 	char	*tmp;
@@ -50,7 +50,7 @@ char	**take_map(int fd)
 
 	map = ft_strdup("");
 	if (!map)
-		return (ft_putendl_fd("Error Malloc", 2), NULL);
+		free_and_exit(data, "Error Malloc");
 	while (1)
 	{
 		tmp = get_next_line(fd, 1);
@@ -58,11 +58,17 @@ char	**take_map(int fd)
 			break ;
 		map = ft_strjoin(map, tmp);
 		if (!map)
-			return (free(tmp), ft_putendl_fd("Error Malloc", 2), NULL);
+		{
+			free(tmp);
+			free_and_exit(data, "Error Malloc");
+		}
 		free(tmp);
 	}
 	map2d = ft_split(map, '\n');
 	if (!map2d)
-		return (free(map), ft_putendl_fd("Error Malloc", 2), NULL);
+	{
+		free(map);
+		free_and_exit(data, "Error Malloc");
+	}
 	return (free(map), map2d);
 }

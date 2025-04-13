@@ -6,7 +6,7 @@
 /*   By: modavid <modavid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 18:54:35 by modavid           #+#    #+#             */
-/*   Updated: 2025/04/13 15:06:52 by modavid          ###   ########.fr       */
+/*   Updated: 2025/04/13 22:52:03 by modavid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,13 @@ int	main(int ac, char **av)
 	data.texture = take_texture(fd);
 	if (data.texture == NULL)
 		return (close(fd), 1);
-	// data.map = take_map(fd);
-	// // if (!data.map)
-	// // 	return (close(fd), 1);
+	data.map = take_map(fd, &data);
+	if (!data.map)
+		return (close(fd), 1);
 	close(fd);
 	check_texture(&data);
+	ft_print2d(data.texture);
+	ft_print2d(data.map);
 	ft_printf("%s\n", data.north);
 	ft_printf("%s\n", data.south);
 	free_all(&data);

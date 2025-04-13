@@ -6,7 +6,7 @@
 /*   By: modavid <modavid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 13:17:30 by modavid           #+#    #+#             */
-/*   Updated: 2025/04/13 15:05:09 by modavid          ###   ########.fr       */
+/*   Updated: 2025/04/13 22:01:18 by modavid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	free_all(t_data *data)
 	if (data->texture)
 		ft_free2d(data->texture);
 	if (data->map)
-		ft_free2d(data->texture);
+		ft_free2d(data->map);
 	if (data->north)
 		free(data->north);
 	if (data->south)
