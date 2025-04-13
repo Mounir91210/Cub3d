@@ -6,7 +6,7 @@
 /*   By: modavid <modavid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 12:49:45 by modavid           #+#    #+#             */
-/*   Updated: 2024/05/30 19:26:20 by modavid          ###   ########.fr       */
+/*   Updated: 2025/04/13 14:59:53 by modavid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,3 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	}
 	return (tab);
 }
-
-/*
-#include <stdio.h>
-int	main()
-{
-	char	tab[] = "idrissa";
-	char	tabs[]= "mou";
-	size_t  n = 3;
-	ft_memcpy(tab, tabs, n);
-	printf("tab: %s\n", tab);
-}
-*/

@@ -6,7 +6,7 @@
 /*   By: modavid <modavid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 15:11:31 by modavid           #+#    #+#             */
-/*   Updated: 2024/05/27 14:35:15 by modavid          ###   ########.fr       */
+/*   Updated: 2025/04/13 16:28:35 by modavid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_isdigit(int c)
 {
 	if (c >= 48 && c <= 57)
-		return (1);
-	else
 		return (0);
+	else
+		return (1);
 }

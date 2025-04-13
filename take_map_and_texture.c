@@ -6,7 +6,7 @@
 /*   By: modavid <modavid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 13:36:38 by modavid           #+#    #+#             */
-/*   Updated: 2025/04/13 14:07:48 by modavid          ###   ########.fr       */
+/*   Updated: 2025/04/13 15:03:42 by modavid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,15 @@ char	**take_texture(int fd)
 	while (1)
 	{
 		tmp = get_next_line(fd, 1);
-		if (check_no_texture(tmp) == 1)
-			break ;
-		printf("%s\n", tmp);
 		if (!tmp)
 			return (ft_putendl_fd("Error: No map", 2), NULL);
+		if (check_no_texture(tmp) == 1)
+			break ;
 		texture = ft_strjoin(texture, tmp);
 		if (!texture)
 			return (free(tmp), ft_putendl_fd("Error: No map", 2), NULL);
 		free(tmp);
 	}
-	printf("%s\n", texture);
 	tmp2d = ft_split(texture, '\n');
 	if (!tmp2d)
 		return (free(texture), ft_putendl_fd("Error Malloc", 2), NULL);

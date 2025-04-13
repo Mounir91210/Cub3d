@@ -6,7 +6,7 @@
 /*   By: modavid <modavid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 16:12:38 by modavid           #+#    #+#             */
-/*   Updated: 2025/04/08 14:17:56 by modavid          ###   ########.fr       */
+/*   Updated: 2025/04/13 15:00:08 by modavid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,18 +97,3 @@ char	**ft_split(char const *s, char c)
 	ft_returntab(tab, s, c);
 	return (tab);
 }
-
-// int	main()
-// {
-// 	char	**split;
-// 	int		i;
-
-// 	i = 0;
-// 	split = ft_split("yo bienou   ", ' ');
-// 	while (split[i])
-// 	{
-// 		printf("%s$\n", split[i]);
-// 		i++;
-// 	}
-// 	return (0);
-// }

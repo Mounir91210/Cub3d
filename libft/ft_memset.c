@@ -6,7 +6,7 @@
 /*   By: modavid <modavid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:29:42 by modavid           #+#    #+#             */
-/*   Updated: 2024/05/27 14:35:02 by modavid          ###   ########.fr       */
+/*   Updated: 2025/04/13 14:59:59 by modavid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,3 @@ void	*ft_memset(void *s, int c, size_t n)
 	}
 	return (tab);
 }
-
-/*
-#include <stdio.h>
-int	main()
-{
-	char	tab[] = "idrissa";
-	int	 	c = '6';
-	size_t  n = 3;
-	ft_memset(tab, c, n);
-	printf("tab: %s\n", tab);
-}
-*/

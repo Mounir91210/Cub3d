@@ -6,7 +6,7 @@
 /*   By: modavid <modavid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 18:58:24 by modavid           #+#    #+#             */
-/*   Updated: 2025/04/13 13:51:38 by modavid          ###   ########.fr       */
+/*   Updated: 2025/04/13 15:32:51 by modavid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,13 @@ typedef struct s_data
 	char	**map;
 	char	**texture;
 	char	*north;
+	int		count_north;
 	char	*south;
+	int		count_south;
 	char	*west;
+	int		count_west;
 	char	*east;
+	int		count_east;
 	int		f_red;
 	int		f_green;
 	int		f_blue;
@@ -32,6 +36,7 @@ typedef struct s_data
 }	t_data;	
 
 void	free_and_exit(t_data *data, char *str);
+void	free_all(t_data *data);
 char	**take_map(int fd);
 char	**take_texture(int fd);
 void	check_color(char *character, t_data *data);

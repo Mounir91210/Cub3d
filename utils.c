@@ -6,7 +6,7 @@
 /*   By: modavid <modavid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 13:17:30 by modavid           #+#    #+#             */
-/*   Updated: 2025/04/13 14:01:05 by modavid          ###   ########.fr       */
+/*   Updated: 2025/04/13 15:05:09 by modavid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@ void	check_space(char *str, int *i)
 		(*i)++;
 }
 
-void	free_and_exit(t_data *data, char *str)
+void	free_all(t_data *data)
 {
 	if (data->texture)
+		ft_free2d(data->texture);
+	if (data->map)
 		ft_free2d(data->texture);
 	if (data->north)
 		free(data->north);
@@ -30,6 +32,11 @@ void	free_and_exit(t_data *data, char *str)
 		free(data->west);
 	if (data->east)
 		free(data->east);
+}
+
+void	free_and_exit(t_data *data, char *str)
+{
+	free_all(data);
 	ft_printf("%s\n", str);
 	exit(1);
 }
