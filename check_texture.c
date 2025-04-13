@@ -6,7 +6,7 @@
 /*   By: modavid <modavid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 13:39:12 by modavid           #+#    #+#             */
-/*   Updated: 2025/04/13 16:39:08 by modavid          ###   ########.fr       */
+/*   Updated: 2025/04/13 18:31:31 by modavid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,16 @@ void	check_east_and_west(char *character, t_data *data)
 	if (ft_strncmp(character, "WE", 2) == 0)
 	{
 		check_space(character, &i);
+		if (i == 2)
+			free_and_exit(data, "Error: No space before texture path");
 		data->west = path_of_texture(character, &i, data);
 		data->count_west++;
 	}
 	else if (ft_strncmp(character, "EA", 2) == 0)
 	{
 		check_space(character, &i);
+		if (i == 2)
+			free_and_exit(data, "Error: No space before texture path");
 		data->east = path_of_texture(character, &i, data);
 		data->count_east++;
 	}
@@ -77,12 +81,16 @@ void	check_north_and_south(char *character, t_data *data)
 	if (ft_strncmp(character, "NO", 2) == 0)
 	{
 		check_space(character, &i);
+		if (i == 2)
+			free_and_exit(data, "Error: No space before texture path");
 		data->north = path_of_texture(character, &i, data);
 		data->count_north++;
 	}
 	else if (ft_strncmp(character, "SO", 2) == 0)
 	{
 		check_space(character, &i);
+		if (i == 2)
+			free_and_exit(data, "Error: No space before texture path");
 		data->south = path_of_texture(character, &i, data);
 		data->count_south++;
 	}
@@ -103,4 +111,8 @@ void	check_texture(t_data *data)
 	if (data->count_east != 1 || data->count_west != 1
 			|| data->count_north != 1 || data->count_south != 1)
 		free_and_exit(data, "Error: Wrong number of character");
+	if (color_range(data->c_blue) == 1 || color_range(data->c_red) == 1
+			|| color_range(data->c_green) == 1 || color_range(data->f_blue) == 1
+			|| color_range(data->f_red) == 1 || color_range(data->f_green) == 1)
+		free_and_exit(data, "Error: Wrong color range");
 }

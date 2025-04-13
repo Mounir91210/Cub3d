@@ -6,7 +6,7 @@
 /*   By: modavid <modavid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 13:36:38 by modavid           #+#    #+#             */
-/*   Updated: 2025/04/13 15:03:42 by modavid          ###   ########.fr       */
+/*   Updated: 2025/04/13 18:27:17 by modavid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@ char	**take_texture(int fd)
 		if (!tmp)
 			return (ft_putendl_fd("Error: No map", 2), NULL);
 		if (check_no_texture(tmp) == 1)
+		{
+			free(tmp);
 			break ;
+		}
 		texture = ft_strjoin(texture, tmp);
 		if (!texture)
 			return (free(tmp), ft_putendl_fd("Error: No map", 2), NULL);
@@ -36,8 +39,7 @@ char	**take_texture(int fd)
 	tmp2d = ft_split(texture, '\n');
 	if (!tmp2d)
 		return (free(texture), ft_putendl_fd("Error Malloc", 2), NULL);
-	free(texture);
-	return (tmp2d);
+	return (free(texture), tmp2d);
 }
 
 char	**take_map(int fd)

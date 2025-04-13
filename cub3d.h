@@ -6,7 +6,7 @@
 /*   By: modavid <modavid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 18:58:24 by modavid           #+#    #+#             */
-/*   Updated: 2025/04/13 15:32:51 by modavid          ###   ########.fr       */
+/*   Updated: 2025/04/13 18:06:38 by modavid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,6 @@ void	check_color(char *character, t_data *data);
 void	check_texture(t_data *data);
 int		check_no_texture(char *str);
 void	check_space(char *str, int *i);
+int		color_range(int color);
 
 #endif
