@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: modavid <modavid@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mounir <mounir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 18:54:35 by modavid           #+#    #+#             */
-/*   Updated: 2025/04/13 22:52:03 by modavid          ###   ########.fr       */
+/*   Updated: 2025/04/14 15:24:09 by mounir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	main(int ac, char **av)
 	fd = open(av[1], O_RDONLY);
 	if (fd < 0)
 		return (ft_putendl_fd("Error: fd", 2), 1);
-	data.texture = take_texture(fd);
+	data.texture = take_texture(fd, &data);
 	if (data.texture == NULL)
 		return (close(fd), 1);
 	data.map = take_map(fd, &data);
@@ -42,8 +42,6 @@ int	main(int ac, char **av)
 	check_texture(&data);
 	ft_print2d(data.texture);
 	ft_print2d(data.map);
-	ft_printf("%s\n", data.north);
-	ft_printf("%s\n", data.south);
 	free_all(&data);
 	return (0);
 }

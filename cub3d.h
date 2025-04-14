@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: modavid <modavid@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mounir <mounir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 18:58:24 by modavid           #+#    #+#             */
-/*   Updated: 2025/04/13 21:59:44 by modavid          ###   ########.fr       */
+/*   Updated: 2025/04/14 15:20:05 by mounir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ typedef struct s_data
 {
 	char	**map;
 	char	**texture;
+	char	*tmp_map;
 	char	*north;
 	int		count_north;
 	char	*south;
@@ -38,7 +39,7 @@ typedef struct s_data
 void	free_and_exit(t_data *data, char *str);
 void	free_all(t_data *data);
 char	**take_map(int fd, t_data *data);
-char	**take_texture(int fd);
+char	**take_texture(int fd, t_data *data);
 void	check_color(char *character, t_data *data);
 void	check_texture(t_data *data);
 int		check_no_texture(char *str);

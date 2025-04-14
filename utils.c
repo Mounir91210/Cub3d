@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: modavid <modavid@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mounir <mounir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 13:17:30 by modavid           #+#    #+#             */
-/*   Updated: 2025/04/13 22:01:18 by modavid          ###   ########.fr       */
+/*   Updated: 2025/04/14 15:27:56 by mounir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	check_space(char *str, int *i)
 
 void	free_all(t_data *data)
 {
+	if (data->tmp_map)
+		free(data->tmp_map);
 	if (data->texture)
 		ft_free2d(data->texture);
 	if (data->map)
