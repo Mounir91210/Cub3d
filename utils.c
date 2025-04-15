@@ -6,7 +6,7 @@
 /*   By: mounir <mounir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 13:17:30 by modavid           #+#    #+#             */
-/*   Updated: 2025/04/14 15:27:56 by mounir           ###   ########.fr       */
+/*   Updated: 2025/04/15 10:40:25 by mounir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	free_all(t_data *data)
 void	free_and_exit(t_data *data, char *str)
 {
 	free_all(data);
+	ft_printf("Error\n");
 	ft_printf("%s\n", str);
 	exit(1);
 }

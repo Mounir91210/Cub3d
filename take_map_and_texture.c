@@ -6,7 +6,7 @@
 /*   By: mounir <mounir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 13:36:38 by modavid           #+#    #+#             */
-/*   Updated: 2025/04/14 15:52:29 by mounir           ###   ########.fr       */
+/*   Updated: 2025/04/15 10:38:55 by mounir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,17 @@ char	*export_texture(int fd, t_data *data)
 
 	texture = ft_strdup("");
 	if (!texture)
-		return (ft_putendl_fd("Error Malloc", 2), NULL);
+		return (ft_putendl_fd("Error\nMalloc failed\n", 2), NULL);
 	while (1)
 	{
 		data->tmp_map = get_next_line(fd, 1);
 		if (!data->tmp_map)
-			return (free(texture), ft_putendl_fd("Error: No map", 2), NULL);
+			return (free(texture), ft_putendl_fd("Error\nNo map\n", 2), NULL);
 		if (check_no_texture(data->tmp_map) == 1)
 			return (texture);
 		texture = ft_strjoin(texture, data->tmp_map);
 		if (!texture)
-			free_and_exit(data, "Error Malloc");
+			free_and_exit(data, "Malloc failed");
 		free(data->tmp_map);
 	}
 }
@@ -45,7 +45,7 @@ char	**take_texture(int fd, t_data *data)
 	if (!texture2d)
 	{
 		free(texture);
-		free_and_exit(data, "Error Malloc");
+		free_and_exit(data, "Malloc failed");
 	}
 	return (free(texture), texture2d);
 }
@@ -64,12 +64,12 @@ char	**take_map(int fd, t_data *data)
 		if (!data->tmp_map)
 		{
 			free(map);
-			free_and_exit(data, "Error Malloc");
+			free_and_exit(data, "Malloc failed");
 		}
 		free(map);
 	}
 	map2d = ft_split(data->tmp_map, '\n');
 	if (!map2d)
-		free_and_exit(data, "Error Malloc");
+		free_and_exit(data, "Malloc failed");
 	return (map2d);
 }

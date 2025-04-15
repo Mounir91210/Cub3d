@@ -6,7 +6,7 @@
 /*   By: mounir <mounir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 18:58:24 by modavid           #+#    #+#             */
-/*   Updated: 2025/04/14 15:20:05 by mounir           ###   ########.fr       */
+/*   Updated: 2025/04/15 10:59:27 by mounir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,10 @@ typedef struct s_data
 	int		c_red;
 	int		c_green;
 	int		c_blue;
+	int		pos_N;
+	int		pos_W;
+	int		pos_S;
+	int		pos_E;
 }	t_data;	
 
 void	free_and_exit(t_data *data, char *str);
@@ -45,5 +49,10 @@ void	check_texture(t_data *data);
 int		check_no_texture(char *str);
 void	check_space(char *str, int *i);
 int		color_range(int color);
+void    check_map(t_data *data);
+int		check_pos_n(char *player, t_data *data);
+int		check_pos_s(char *player, t_data *data);
+int		check_pos_w(char *player, t_data *data);
+int		check_pos_e(char *player, t_data *data);
 
 #endif

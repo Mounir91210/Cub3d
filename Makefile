@@ -1,4 +1,5 @@
-SRCS =  main.c utils.c take_map_and_texture.c check_color.c check_texture.c
+SRCS =  main.c utils.c take_map_and_texture.c check_color.c check_texture.c \
+		check_map.c check_player.c
 
 CC =  cc -Wall -Werror -Wextra -g3
 DIRLIB = ./libft
