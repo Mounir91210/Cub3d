@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mounir <mounir@student.42.fr>              +#+  +:+       +#+        */
+/*   By: modavid <modavid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 18:54:35 by modavid           #+#    #+#             */
-/*   Updated: 2025/04/15 10:42:25 by mounir           ###   ########.fr       */
+/*   Updated: 2025/04/15 19:00:18 by modavid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int ac, char **av)
 		return (ft_putendl_fd("Error\nBad arguments", 2), 1);
 	if (check_extension(av[1]) == 1)
 		return (ft_putendl_fd("Error\nFiles not .cub", 2), 1);
-	ft_memset(&data, 0 , sizeof(t_data));
+	ft_memset(&data, 0, sizeof(t_data));
 	fd = open(av[1], O_RDONLY);
 	if (fd < 0)
 		return (ft_putendl_fd("Error\nNo fd", 2), 1);
@@ -41,6 +41,7 @@ int	main(int ac, char **av)
 	close(fd);
 	check_texture(&data);
 	check_map(&data);
+	is_map_open(&data);
 	ft_print2d(data.texture);
 	ft_print2d(data.map);
 	free_all(&data);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_texture.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mounir <mounir@student.42.fr>              +#+  +:+       +#+        */
+/*   By: modavid <modavid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 13:39:12 by modavid           #+#    #+#             */
-/*   Updated: 2025/04/15 10:39:21 by mounir           ###   ########.fr       */
+/*   Updated: 2025/04/15 15:34:47 by modavid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,10 +109,10 @@ void	check_texture(t_data *data)
 		i++;
 	}
 	if (data->count_east != 1 || data->count_west != 1
-			|| data->count_north != 1 || data->count_south != 1)
+		|| data->count_north != 1 || data->count_south != 1)
 		free_and_exit(data, "Wrong number of ID");
 	if (color_range(data->c_blue) == 1 || color_range(data->c_red) == 1
-			|| color_range(data->c_green) == 1 || color_range(data->f_blue) == 1
-			|| color_range(data->f_red) == 1 || color_range(data->f_green) == 1)
+		|| color_range(data->c_green) == 1 || color_range(data->f_blue) == 1
+		|| color_range(data->f_red) == 1 || color_range(data->f_green) == 1)
 		free_and_exit(data, "Wrong color range");
 }

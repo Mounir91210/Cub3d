@@ -3,14 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mounir <mounir@student.42.fr>              +#+  +:+       +#+        */
+/*   By: modavid <modavid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 13:17:30 by modavid           #+#    #+#             */
-/*   Updated: 2025/04/15 10:40:25 by mounir           ###   ########.fr       */
+/*   Updated: 2025/04/15 17:53:40 by modavid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+int	ft_strlen2d(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
 
 void	check_space(char *str, int *i)
 {
