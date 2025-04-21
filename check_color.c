@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_color.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mounir <mounir@student.42.fr>              +#+  +:+       +#+        */
+/*   By: modavid <modavid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 13:39:08 by modavid           #+#    #+#             */
-/*   Updated: 2025/04/15 10:39:59 by mounir           ###   ########.fr       */
+/*   Updated: 2025/04/21 16:20:38 by modavid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,7 @@ void	check_color(char *character, t_data *data)
 		data->f_red = take_red_and_green(character, &i, data);
 		data->f_green = take_red_and_green(character, &i, data);
 		data->f_blue = take_blue(character, &i, data);
+		data->count_f++;
 	}
 	else if (ft_strncmp(character, "C", 1) == 0)
 	{	
@@ -110,5 +111,6 @@ void	check_color(char *character, t_data *data)
 		data->c_red = take_red_and_green(character, &i, data);
 		data->c_green = take_red_and_green(character, &i, data);
 		data->c_blue = take_blue(character, &i, data);
+		data->count_c++;
 	}
 }

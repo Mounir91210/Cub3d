@@ -6,7 +6,7 @@
 /*   By: modavid <modavid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 16:10:29 by modavid           #+#    #+#             */
-/*   Updated: 2025/04/15 19:20:09 by modavid          ###   ########.fr       */
+/*   Updated: 2025/04/17 13:45:48 by modavid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,13 +83,13 @@ void	is_map_open(t_data *data)
 		{
 			if (data->map[i][j] == '0')
 			{
-				if (is_not_character(data->map[i + 1][j]) == 1)
+				if ((i + 1) >= ft_strlen2d(data->map) || is_not_character(data->map[i + 1][j]) == 1)
 					free_and_exit(data, "Map not closed");
-				if (is_not_character(data->map[i - 1][j]) == 1)
+				if ((i - 1) >= ft_strlen2d(data->map) || is_not_character(data->map[i - 1][j]) == 1)
 					free_and_exit(data, "Map not closed");
-				if (is_not_character(data->map[i][j + 1]) == 1)
+				if ((j + 1) >= (int)ft_strlen(data->map[i]) || is_not_character(data->map[i][j + 1]) == 1)
 					free_and_exit(data, "Map not closed");
-				if (is_not_character(data->map[i][j - 1]) == 1)
+				if ((j - 1) >= (int)ft_strlen(data->map[i]) || is_not_character(data->map[i][j - 1]) == 1)
 					free_and_exit(data, "Map not closed");
 			}
 			j++;

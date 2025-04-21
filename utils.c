@@ -6,7 +6,7 @@
 /*   By: modavid <modavid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 13:17:30 by modavid           #+#    #+#             */
-/*   Updated: 2025/04/15 17:53:40 by modavid          ###   ########.fr       */
+/*   Updated: 2025/04/17 22:35:33 by modavid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,14 @@ void	free_all(t_data *data)
 		ft_free2d(data->texture);
 	if (data->map)
 		ft_free2d(data->map);
-	if (data->north)
-		free(data->north);
-	if (data->south)
-		free(data->south);
-	if (data->west)
-		free(data->west);
-	if (data->east)
-		free(data->east);
+	if (data->north_path)
+		free(data->north_path);
+	if (data->south_path)
+		free(data->south_path);
+	if (data->west_path)
+		free(data->west_path);
+	if (data->east_path)
+		free(data->east_path);
 }
 
 void	free_and_exit(t_data *data, char *str)

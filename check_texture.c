@@ -6,7 +6,7 @@
 /*   By: modavid <modavid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 13:39:12 by modavid           #+#    #+#             */
-/*   Updated: 2025/04/15 15:34:47 by modavid          ###   ########.fr       */
+/*   Updated: 2025/04/21 16:49:04 by modavid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,9 @@ char	*path_of_texture(char *path, int *i, t_data *data)
 		(*i)++;
 	}
 	tmp[count] = '\0';
+	check_space(path, i);
+	if (path[*i] != '\0' || path[*i] != '\n')
+		free_and_exit(data, "wrong character after texture path");
 	return (tmp);
 }
 
@@ -60,7 +63,7 @@ void	check_east_and_west(char *character, t_data *data)
 		check_space(character, &i);
 		if (i == 2)
 			free_and_exit(data, "No space before texture path");
-		data->west = path_of_texture(character, &i, data);
+		data->west_path = path_of_texture(character, &i, data);
 		data->count_west++;
 	}
 	else if (ft_strncmp(character, "EA", 2) == 0)
@@ -68,7 +71,7 @@ void	check_east_and_west(char *character, t_data *data)
 		check_space(character, &i);
 		if (i == 2)
 			free_and_exit(data, "No space before texture path");
-		data->east = path_of_texture(character, &i, data);
+		data->east_path = path_of_texture(character, &i, data);
 		data->count_east++;
 	}
 }
@@ -83,7 +86,7 @@ void	check_north_and_south(char *character, t_data *data)
 		check_space(character, &i);
 		if (i == 2)
 			free_and_exit(data, "No space before texture path");
-		data->north = path_of_texture(character, &i, data);
+		data->north_path = path_of_texture(character, &i, data);
 		data->count_north++;
 	}
 	else if (ft_strncmp(character, "SO", 2) == 0)
@@ -91,7 +94,7 @@ void	check_north_and_south(char *character, t_data *data)
 		check_space(character, &i);
 		if (i == 2)
 			free_and_exit(data, "No space before texture path");
-		data->south = path_of_texture(character, &i, data);
+		data->south_path = path_of_texture(character, &i, data);
 		data->count_south++;
 	}
 }
@@ -108,8 +111,8 @@ void	check_texture(t_data *data)
 		check_color(data->texture[i], data);
 		i++;
 	}
-	if (data->count_east != 1 || data->count_west != 1
-		|| data->count_north != 1 || data->count_south != 1)
+	if (data->count_south != 1 || data->count_north != 1 || data->count_f != 1
+		|| data->count_west != 1 || data->count_east != 1 || data->count_c != 1)
 		free_and_exit(data, "Wrong number of ID");
 	if (color_range(data->c_blue) == 1 || color_range(data->c_red) == 1
 		|| color_range(data->c_green) == 1 || color_range(data->f_blue) == 1

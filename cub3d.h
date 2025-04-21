@@ -6,7 +6,7 @@
 /*   By: modavid <modavid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 18:58:24 by modavid           #+#    #+#             */
-/*   Updated: 2025/04/15 19:00:01 by modavid          ###   ########.fr       */
+/*   Updated: 2025/04/21 16:19:53 by modavid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,22 @@ typedef struct s_data
 	char	**map;
 	char	**texture;
 	char	*tmp_map;
-	char	*north;
+	char	*north_path;
 	int		count_north;
-	char	*south;
+	char	*south_path;
 	int		count_south;
-	char	*west;
+	char	*west_path;
 	int		count_west;
-	char	*east;
+	char	*east_path;
 	int		count_east;
 	int		f_red;
 	int		f_green;
 	int		f_blue;
+	int		count_f;
 	int		c_red;
 	int		c_green;
 	int		c_blue;
+	int		count_c;
 	int		pos_n;
 	int		pos_w;
 	int		pos_s;
