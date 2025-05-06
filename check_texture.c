@@ -6,7 +6,7 @@
 /*   By: modavid <modavid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 13:39:12 by modavid           #+#    #+#             */
-/*   Updated: 2025/04/21 16:49:04 by modavid          ###   ########.fr       */
+/*   Updated: 2025/05/06 18:47:42 by modavid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,16 @@ char	*path_of_texture(char *path, int *i, t_data *data)
 	}
 	tmp[count] = '\0';
 	check_space(path, i);
-	if (path[*i] != '\0' || path[*i] != '\n')
-		free_and_exit(data, "wrong character after texture path");
+	if (path[*i] != '\0' && path[*i] != '\n')
+	{
+		free(tmp);
+		free_and_exit(data, "Wrong character after texture path");
+	}
+	if (check_extension(tmp, ".xpm") == 1)
+	{
+		free(tmp);
+		free_and_exit(data, "Files texture no xpm");
+	}
 	return (tmp);
 }
 

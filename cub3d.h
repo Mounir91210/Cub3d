@@ -6,7 +6,7 @@
 /*   By: modavid <modavid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 18:58:24 by modavid           #+#    #+#             */
-/*   Updated: 2025/04/21 16:19:53 by modavid          ###   ########.fr       */
+/*   Updated: 2025/05/06 18:45:16 by modavid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,6 @@ int		check_pos_s(char *player, t_data *data);
 int		check_pos_w(char *player, t_data *data);
 int		check_pos_e(char *player, t_data *data);
 void	is_map_open(t_data *data);
+int		check_extension(char *files, char *extension);
 
 #endif
