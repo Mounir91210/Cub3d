@@ -6,7 +6,7 @@
 /*   By: modavid <modavid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 10:06:42 by mounir            #+#    #+#             */
-/*   Updated: 2025/04/17 22:35:53 by modavid          ###   ########.fr       */
+/*   Updated: 2025/05/16 02:53:19 by modavid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ void	check_map(t_data *data)
 	while (data->map[i])
 	{
 		check_element(data->map[i], data);
-		count += check_pos_n(data->map[i], data);
-		count += check_pos_s(data->map[i], data);
-		count += check_pos_w(data->map[i], data);
-		count += check_pos_e(data->map[i], data);
+		count += check_pos_n(data->map[i], data, i);
+		count += check_pos_s(data->map[i], data, i);
+		count += check_pos_w(data->map[i], data, i);
+		count += check_pos_e(data->map[i], data, i);
 		i++;
 	}
 	if (count < 1)
