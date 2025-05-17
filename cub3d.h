@@ -6,7 +6,7 @@
 /*   By: modavid <modavid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 18:58:24 by modavid           #+#    #+#             */
-/*   Updated: 2025/05/16 02:54:29 by modavid          ###   ########.fr       */
+/*   Updated: 2025/05/17 01:01:31 by modavid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 # include "libft/libft.h"
 # include "minilibx-linux/mlx.h"
 # include <X11/keysym.h>
+# include <math.h>
+# include <fcntl.h>
+
+# define PIPI 3.14159265358979323846
 
 typedef	struct s_libx
 {

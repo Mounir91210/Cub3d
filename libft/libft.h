@@ -6,7 +6,7 @@
 /*   By: modavid <modavid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 19:19:23 by modavid           #+#    #+#             */
-/*   Updated: 2025/05/16 01:25:52 by modavid          ###   ########.fr       */
+/*   Updated: 2025/05/17 00:58:44 by modavid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 # include <pthread.h>
 # include <unistd.h>
 # include <sys/time.h>
+# include <math.h>
 
 void	ft_bzero(void *s, size_t n);
 void	*ft_memset(void *s, int c, size_t n);

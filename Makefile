@@ -23,7 +23,7 @@ DIR_DUP = mkdir -p $(@D)
 all : $(NAME)
 
 $(NAME): $(LIBFT) $(OBJS) $(MLX)
-	@$(CC) $(OBJS) $(LIBFT) $(MLX) -lXext -lX11 -o $(NAME) -lreadline
+	@$(CC) $(OBJS) $(LIBFT) $(MLX) -lXext -lX11 -lm -o $(NAME) -lreadline
 	@echo "cub3d done !"
 
 $(LIBFT) :
