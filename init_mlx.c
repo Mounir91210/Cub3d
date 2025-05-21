@@ -6,7 +6,7 @@
 /*   By: modavid <modavid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 01:48:22 by modavid           #+#    #+#             */
-/*   Updated: 2025/05/17 02:02:41 by modavid          ###   ########.fr       */
+/*   Updated: 2025/05/21 02:59:10 by modavid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void    put_circle(t_data *data, t_libx *libx)
     while (i < 5000)
 	{
 		radiant = 2 * PIPI * i / 5000;
-		x = data->pos->abs + 1 * cos(radiant);
-		y = data->pos->ord + 1 * sin(radiant);
+		x = data->pos.abs + 1 * cos(radiant);
+		y = data->pos.ord + 1 * sin(radiant);
 		mlx_pixel_put(libx->mlx, libx->win, x * 64, y * 64, 0XFF0000);
 		i++;
     }
@@ -49,7 +49,40 @@ void    put_image(t_data *data, t_libx *libx)
         }
         i++;
     }
-    mlx_pixel_put(libx->mlx, libx->win, data->pos->abs * 64, data->pos->ord *64, 0XFF0000);
+    mlx_pixel_put(libx->mlx, libx->win, data->pos.abs * 64, data->pos.ord *64, 0XFF0000);
+    double x = data->pos.abs;
+    double y = data->pos.ord;
+    double dist = 1.3;
+    double dist_fov = 0.5;
+    
+    double xx = x + dist * cos(data->angle);
+    double yy = y + dist * sin(data->angle);
+    data->vec.abs = xx;
+    data->vec.ord = yy;
+    // printf("debug => {x: %f} | {y: %f}\n", x, y);
+    // printf("debug => {xx: %f} | {yy: %f}\n", xx, yy);
+    printf("DEBUG ANGLE => %f\n", data->angle);
+    mlx_pixel_put(libx->mlx, libx->win, xx * 64, yy *64, 0XFF0000);
+    double perpa = xx + dist_fov * (-sin(data->angle));
+    double perpb = yy + dist_fov * (cos(data->angle));
+    mlx_pixel_put(libx->mlx, libx->win, perpa * 64, perpb *64, 0XFF0000);
+    perpa = xx + dist_fov * (sin(data->angle));
+    perpb = yy + dist_fov * (-cos(data->angle));
+    mlx_pixel_put(libx->mlx, libx->win, perpa * 64, perpb *64, 0XFF0000);
+}
+
+int key_function(int keycode, void *param)
+{
+    t_data *data;
+
+    data = (t_data *)param;
+
+    if (keycode == 97)
+    {
+        data->angle += 0.5;
+        put_image(data, data->libx);
+    }
+    return 1;
 }
 
 void    init_mlx(t_data *data, t_libx *libx)
@@ -67,7 +100,10 @@ void    init_mlx(t_data *data, t_libx *libx)
     //initaliser le vecteur direction par rapport a la direction de depart\
     //creer le plane (camera) ((perpendiculaire))
     //appliquer la formule de raycasting pour lancer les rayon dans le FOV (champ de vision)
+    data->libx = libx;
+    data->angle = 0;
     put_image(data, libx);
     put_circle(data, libx);
+    mlx_key_hook(libx->win, key_function, data);
     mlx_loop(libx->mlx);
 }

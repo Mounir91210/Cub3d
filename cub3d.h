@@ -6,7 +6,7 @@
 /*   By: modavid <modavid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 18:58:24 by modavid           #+#    #+#             */
-/*   Updated: 2025/05/17 01:01:31 by modavid          ###   ########.fr       */
+/*   Updated: 2025/05/21 00:14:22 by modavid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ typedef	struct s_libx
 	void	*win;
 	void	*white;
 	void	*black;
-	
 }	t_libx;
 
 typedef struct s_pos
 {
-	int	abs;
-	int	ord;
+	char	dir;
+	double	abs;
+	double	ord;
 }	t_pos;
 
 typedef struct s_data
@@ -61,7 +61,10 @@ typedef struct s_data
 	int		pos_w;
 	int		pos_s;
 	int		pos_e;
-	t_pos	*pos;
+	double 	angle;
+	t_pos	vec;
+	t_pos	pos;
+	t_libx	*libx;
 }	t_data;
 
 void	free_and_exit(t_data *data, char *str);
